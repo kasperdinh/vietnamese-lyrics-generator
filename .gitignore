@@ -114,9 +114,9 @@ dmypy.json
 .pyre/
 
 # Machine Learning / Data Science
-# Large model files (uncomment if needed)
-models/
-data/
+models/vietnamese-lyrics-generator-model-pretrained/
+data-preparing/
+
 
 # IDEs
 .vscode/

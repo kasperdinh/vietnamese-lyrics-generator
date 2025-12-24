@@ -2,8 +2,8 @@ from transformers import GPT2LMHeadModel, GPT2Tokenizer
 import sys
 import os
 
-# Sử dụng model đã fine-tune
-MODEL_PATH = "models/gpt2-finetuned"
+# Use fine-tuned model if available
+MODEL_PATH = "models/vietnamese-lyrics-generator-model-finetuned"
 
 if os.path.exists(MODEL_PATH):
     tokenizer = GPT2Tokenizer.from_pretrained(MODEL_PATH)
@@ -35,7 +35,7 @@ if __name__ == "__main__":
     if len(sys.argv) > 1:
         prompt = sys.argv[1]
     else:
-        prompt = "Viết lời bài hát về tình yêu"
+        prompt = "Viết lời bài hát Nhạc Trẻ"
     
     lyrics = generate_lyrics(prompt)
     print(lyrics)

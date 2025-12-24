@@ -1,2 +1,10 @@
 transformers
-datasets 
+datasets
+pandas
+requests
+beautifulsoup4
+tqdm
+accelerate
+selenium
+undetected-chromedriver
+lyricsgenius
