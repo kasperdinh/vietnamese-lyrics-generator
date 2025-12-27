@@ -9,7 +9,7 @@ interface LyricsDisplayProps {
 export default function LyricsDisplay({ lyrics, loading }: LyricsDisplayProps) {
   return (
     <div className="relative min-h-[200px]">
-      <h2 className="text-xl font-semibold mb-3 text-blue-200">Generated Lyrics</h2>
+      <h2 className="text-xl font-semibold mb-3 text-blue-200">Lời bài hát đã tạo</h2>
       <div className="bg-black/30 border border-white/10 rounded-2xl p-8 backdrop-blur-md shadow-inner min-h-[250px] relative overflow-hidden">
         {/* Decorative Line */}
         <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-pink-500 to-transparent opacity-50"></div>
@@ -26,7 +26,7 @@ export default function LyricsDisplay({ lyrics, loading }: LyricsDisplayProps) {
           </motion.div>
         ) : (
           <div className="flex flex-col items-center justify-center h-full text-white/30 italic">
-            {!loading && "Lyrics will appear here like magic..."}
+            {!loading && "Lời bài hát sẽ xuất hiện ở đây như phép màu..."}
             {loading && (
                <div className="animate-pulse flex space-x-2">
                   <div className="w-2 h-2 bg-blue-400 rounded-full"></div>

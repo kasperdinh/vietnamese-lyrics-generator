@@ -15,8 +15,8 @@ export default function Home() {
   // Gom nhóm state cấu hình vào một object cho gọn
   const [config, setConfig] = useState<SongConfig>({
     genre: 'Ballad',
-    emotion: 'Sad',
-    topic: 'Lost Love'
+    emotion: 'Buồn',
+    topic: 'Tình yêu thất bại'
   });
   
   const [lyrics, setLyrics] = useState<string>('');

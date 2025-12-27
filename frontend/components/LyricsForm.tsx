@@ -27,39 +27,39 @@ export default function LyricsForm({ config, setConfig, loading, onSubmit }: Lyr
         {/* Select Genre */}
         <div className="space-y-2">
           <label className="flex items-center gap-2 text-sm font-semibold text-blue-100">
-            <Music size={16}/> Select Genre
+            <Music size={16}/> Chọn thể loại
           </label>
           <CustomCombobox 
             value={config.genre}
             onChange={(val) => handleChange('genre', val)}
             options={GENRES}
-            placeholder="Select Genre"
+            placeholder="Chọn thể loại"
           />
         </div>
 
         {/* Select Emotion */}
         <div className="space-y-2">
           <label className="flex items-center gap-2 text-sm font-semibold text-blue-100">
-            <Sparkles size={16}/> Select Emotion
+            <Sparkles size={16}/> Chọn cảm xúc
           </label>
           <CustomCombobox 
             value={config.emotion}
             onChange={(val) => handleChange('emotion', val)}
             options={EMOTIONS}
-            placeholder="Select Emotion"
+            placeholder="Chọn cảm xúc"
           />
         </div>
 
         {/* Select Topic */}
         <div className="space-y-2">
           <label className="flex items-center gap-2 text-sm font-semibold text-blue-100">
-            <Mic2 size={16}/> Select Topic
+            <Mic2 size={16}/> Chọn chủ đề
           </label>
           <CustomCombobox 
             value={config.topic}
             onChange={(val) => handleChange('topic', val)}
             options={TOPICS}
-            placeholder="Select Topic"
+            placeholder="Chọn chủ đề"
           />
         </div>
       </div>
@@ -77,7 +77,7 @@ export default function LyricsForm({ config, setConfig, loading, onSubmit }: Lyr
             : "bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-400 hover:to-purple-500 text-white shadow-blue-500/50"
           }`}
         >
-          {loading ? "Composing..." : "Generate Song"}
+          {loading ? "Đang sáng tác..." : "Tạo bài hát"}
         </motion.button>
       </div>
     </div>
