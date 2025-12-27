@@ -53,7 +53,7 @@ export function CustomCombobox({ value, onChange, options, placeholder }: Custom
     <PopoverContent className="w-[--radix-popover-trigger-width] p-0 bg-indigo-950 border-indigo-500/50 text-white">
         
         {/* THÊM CLASS ĐẶC BIỆT Ở ĐÂY: [&_[cmdk-input-wrapper]]:border-indigo-500/50 */}
-        <Command className="bg-transparent [&_[cmdk-input-wrapper]]:border-indigo-500/50">
+        <Command className="bg-transparent [[cmdk-input-wrapper]]:border-indigo-500/50">
           
           <CommandInput placeholder={`Search ${placeholder.toLowerCase()}...`} className="text-white placeholder:text-gray-400" />
           <CommandList>

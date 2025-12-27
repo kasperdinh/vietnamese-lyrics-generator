@@ -74,7 +74,7 @@ export default function LyricsForm({ config, setConfig, loading, onSubmit }: Lyr
           className={`px-10 py-3 rounded-full font-bold text-lg shadow-lg transition-all ${
             loading 
             ? "bg-gray-500 cursor-not-allowed"
-            : "bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-400 hover:to-purple-500 text-white shadow-blue-500/50"
+            : "bg-linear-to-r from-blue-500 to-purple-600 hover:from-blue-400 hover:to-purple-500 text-white shadow-blue-500/50"
           }`}
         >
           {loading ? "Đang sáng tác..." : "Tạo bài hát"}

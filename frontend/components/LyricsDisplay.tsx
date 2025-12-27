@@ -8,11 +8,11 @@ interface LyricsDisplayProps {
 
 export default function LyricsDisplay({ lyrics, loading }: LyricsDisplayProps) {
   return (
-    <div className="relative min-h-[200px]">
+    <div className="relative min-h-50">
       <h2 className="text-xl font-semibold mb-3 text-blue-200">Lời bài hát đã tạo</h2>
-      <div className="bg-black/30 border border-white/10 rounded-2xl p-8 backdrop-blur-md shadow-inner min-h-[250px] relative overflow-hidden">
+      <div className="bg-black/30 border border-white/10 rounded-2xl p-8 backdrop-blur-md shadow-inner min-h-62.5 relative overflow-hidden">
         {/* Decorative Line */}
-        <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-pink-500 to-transparent opacity-50"></div>
+        <div className="absolute top-0 left-0 w-full h-1 bg-linear-to-r from-transparent via-pink-500 to-transparent opacity-50"></div>
         
         {lyrics ? (
           <motion.div
