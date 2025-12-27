@@ -1,5 +1,3 @@
-
-
 ### Created by https://www.gitignore.io
 ### macOS ###
 # General
@@ -347,5 +345,5 @@ dist
 # SvelteKit build / generate output
 .svelte-kit
 
-# Model
-model/
+#Model
+model/model.safetensors
