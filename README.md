@@ -1,30 +1,30 @@
-## 🚀 Hướng dẫn Cài đặt & Chạy
+## 🚀 Installation & Run Guide
 
-Để chạy hệ thống, bạn cần mở **2 cửa sổ Terminal** riêng biệt chạy song song:
+To run the system, you need to open **2 separate Terminal windows** running in parallel:
 
-### Khởi chạy Backend (Python API)
+### Start Backend (Python API)
 ```bash
-# 1. Tạo môi trường ảo (chỉ cần làm lần đầu)
+# 1. Create virtual environment (only need to do once)
 python3 -m venv venv
 
-# 2. Kích hoạt môi trường ảo
+# 2. Activate virtual environment
 source venv/bin/activate
 
-
-# 3. Cài đặt các thư viện
+# 3. Install libraries
 pip install -r requirements.txt
 
-# 4. Chạy Server
+# 4. Run Server
 uvicorn main:app --reload
 ```
-### Khởi chạy Frontend 
+
+### Start Frontend
 ```bash
-# 1. Đi vào thư mục frontend
+# 1. Go to frontend directory
 cd frontend
 
-# 2. Cài đặt thư viện (chỉ cần làm lần đầu)
+# 2. Install libraries (only need to do once)
 npm install
 
-# 3. Chạy dự án
+# 3. Run project
 npm run dev
 ```
