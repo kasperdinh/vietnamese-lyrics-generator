@@ -16,8 +16,8 @@ interface LyricsFormProps {
 export default function LyricsForm({ config, setConfig, loading, onSubmit }: LyricsFormProps) {
   
   // Hàm helper để cập nhật state
-  const handleChange = (field: keyof SongConfig, value: string | string[]) => {
-    setConfig(prev => ({ ...prev, [field]: value }));
+  const handleChange = (value: string[]) => {
+    setConfig(prev => ({ ...prev, genre: value }));
   };
 
   const isValid = config.genre.length > 0;
@@ -52,11 +52,11 @@ export default function LyricsForm({ config, setConfig, loading, onSubmit }: Lyr
             <label className="flex items-center gap-2 text-sm font-semibold text-blue-100">
               <Music size={18} className="text-blue-300" />
               Chọn thể loại nhạc
-              <Info size={14} className="text-gray-400" title="Có thể chọn nhiều thể loại để kết hợp phong cách" />
+              <Info size={14} className="text-gray-400" />
             </label>
             <MultiSelect 
               value={config.genre}
-              onChange={(val) => handleChange('genre', val)}
+              onChange={handleChange}
               options={GENRES}
               placeholder="Nhấp để chọn thể loại..."
             />
