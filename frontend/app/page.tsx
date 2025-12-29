@@ -14,9 +14,7 @@ import LyricsDisplay from '@/components/LyricsDisplay';
 export default function Home() {
   // Gom nhóm state cấu hình vào một object cho gọn
   const [config, setConfig] = useState<SongConfig>({
-    genre: 'Ballad',
-    emotion: 'Buồn',
-    topic: 'Tình yêu thất bại'
+    genre: ['Ballad']
   });
   
   const [lyrics, setLyrics] = useState<string>('');
@@ -80,7 +78,8 @@ export default function Home() {
 
       <LyricsDisplay 
         lyrics={lyrics} 
-        loading={loading} 
+        loading={loading}
+        onRegenerate={handleGenerate}
       />
 
     </motion.div>

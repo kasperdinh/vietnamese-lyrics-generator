@@ -2,9 +2,7 @@
 
 // Kiểu dữ liệu cho cấu hình bài hát (State)
 export interface SongConfig {
-  genre: string;
-  emotion: string;
-  topic: string;
+  genre: string[];
 }
 
 // Kiểu dữ liệu phản hồi từ API

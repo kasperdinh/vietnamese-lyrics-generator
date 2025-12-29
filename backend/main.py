@@ -3,6 +3,8 @@ from pydantic import BaseModel
 from fastapi.middleware.cors import CORSMiddleware
 from transformers import GPT2LMHeadModel, GPT2Tokenizer
 import time
+from typing import List
+import re
 
 # Khởi tạo App
 app = FastAPI()
@@ -18,9 +20,7 @@ app.add_middleware(
 
 # Định nghĩa cấu trúc dữ liệu gửi lên (Dựa theo tài liệu )
 class LyricsRequest(BaseModel):
-    genre: str      # Ví dụ: Ballad, Pop, Rap
-    emotion: str    # Ví dụ: Buồn, Vui, Lãng mạn
-    topic: str      # Ví dụ: Tình yêu, Cuộc sống
+    genre: List[str]      # Ví dụ: ['Ballad', 'Pop']
 
 # --- PHẦN TÍCH HỢP MODEL AI ---
 
@@ -32,25 +32,40 @@ model = GPT2LMHeadModel.from_pretrained(model_path)
 async def generate_lyrics(request: LyricsRequest):
     try:
         # 1. Tạo prompt input cho model (Dựa theo phần 3.5 và 7 trong tài liệu [cite: 70, 117])
-        prompt_text = f"Viết lời bài hát {request.genre}, cảm xúc {request.emotion}, chủ đề {request.topic}:\n"
+        prompt_text = f"Viết lời bài hát {', '.join(request.genre)}"
         
         input_ids = tokenizer.encode(prompt_text, return_tensors='pt')
         output = model.generate(
             input_ids,
-            max_length=200,
+            max_length=512,
             num_return_sequences=1,
             no_repeat_ngram_size=2,
             do_sample=True,
             top_k=50,
             top_p=0.95,
             temperature=0.7,
-            pad_token_id=tokenizer.eos_token_id
+            pad_token_id=tokenizer.eos_token_id,
+            eos_token_id=tokenizer.eos_token_id
         )
         
         # Giả lập độ trễ xử lý của AI
         time.sleep(2) 
         
         generated_text = tokenizer.decode(output[0], skip_special_tokens=True)
+        
+        # Cắt text tại câu hoàn chỉnh để tránh đứt quãng
+        # Tìm vị trí cuối cùng của dấu chấm, chấm than, hoặc chấm hỏi
+        sentences = re.split(r'([.!?])', generated_text)
+        if len(sentences) > 1:
+            # Ghép lại câu cuối cùng hoàn chỉnh
+            last_punct_index = -1
+            for i in range(len(sentences) - 1, -1, -1):
+                if sentences[i] in '.!?':
+                    last_punct_index = i
+                    break
+            if last_punct_index > 0:
+                # Cắt tại câu hoàn chỉnh
+                generated_text = ''.join(sentences[:last_punct_index + 1])
         
         return {"lyrics": generated_text}
 
